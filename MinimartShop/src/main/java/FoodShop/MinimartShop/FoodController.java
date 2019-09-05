@@ -23,7 +23,6 @@ public class FoodController {
 			new FruitFood(4, "Melon", "1/5/2019", "20/12/2019", 10)
 			));
  
-
 	@RequestMapping("/minimart")
 	public List<Food> All(){
 		return myfood;
@@ -31,9 +30,9 @@ public class FoodController {
 
 	@RequestMapping(value = "/minimart/{id}", method=RequestMethod.DELETE)
 	public void deleteFood(@PathVariable String id) {
-		for(int i = 0; i< myfood.size(); i++) {
-			if (myfood.get(i).equals(id)) {
-				myfood.remove(i);
+		for(int j = 0; j< myfood.size(); j++) {
+			if (myfood.get(j).equals(id)) {
+				myfood.remove(j);
 			}
 		}
 	}
