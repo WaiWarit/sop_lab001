@@ -6,7 +6,9 @@ import java.util.Arrays;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
@@ -22,10 +24,21 @@ public class FoodController {
 			));
  
 
-@RequestMapping("/minimart")
+	@RequestMapping("/minimart")
 	public List<Food> All(){
 		return myfood;
 		}	
+
+	@RequestMapping(value = "/minimart/{id}", method=RequestMethod.DELETE)
+	public void deleteFood(@PathVariable String id) {
+		for(int i = 0; i< myfood.size(); i++) {
+			if (myfood.get(i).equals(id)) {
+				myfood.remove(i);
+			}
+		}
+	}
+
+
 }
 
 
